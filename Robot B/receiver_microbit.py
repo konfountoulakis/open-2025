@@ -1,7 +1,4 @@
 from microbit import *
-import music
-
-music.play(["C4:1", "G4:1"])
 
 pot_value = 0
 pot_prev = 0
