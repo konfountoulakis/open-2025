@@ -1,6 +1,9 @@
 # open-2025
 ## GENERAL NOTE WE NEED TO BE CAREFUL WITH TIME 
 
+# Worksheets to help you with code writing
+https://drive.google.com/drive/folders/1eRdLx-MKs2KAyzeNh4g5FEQNfG7-39IQ?usp=drive_link
+
 ## Manos
 ### TO DO lesson 1:
 - run the movement functions and put the correct values 
