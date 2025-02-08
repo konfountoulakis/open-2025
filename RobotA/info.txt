@@ -1,4 +1,6 @@
 Motor and servo info
-
+r -> M2
+L -> M1
+rotate ->
 
 Sensor info

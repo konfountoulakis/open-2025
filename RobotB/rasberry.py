@@ -16,12 +16,12 @@ ser = serial.Serial(
 
 # need to chane that based on the data we get from the microbit
 while True:
-    x=ser.readline()
-    if x:
+    data=ser.readline()
+    if data:
         dt = datetime.now()
         datestamp = str(dt)[:16]
-        temp, light = x.decode().split(':')
-        newData = [datestamp,temp,light]
+        newData = [datestamp,0,0,0,0,0]
+        newData[data[0]]=data[1:] #data0 einai h thesh kai to data[1:] enai ta stoixeia
         print(newData)
         with open('data.csv', 'a', newline='') as f_object:
             writer_object = writer(f_object)
