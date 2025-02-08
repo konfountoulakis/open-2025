@@ -20,6 +20,8 @@ while True:
     message = radio.receive()
     if message and message[0] in sensors:
         display.scroll(message)
-        uart.write(message)
+        pos=sensors.index(message[0])
+        new_message=str(pos+1)+decrypt(message)
+        uart.write(new_message)
         sensor, value = message[0], decrypt(message)
         
