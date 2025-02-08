@@ -184,32 +184,3 @@ class AILENS(object):
         """
         LearnData = [self.__Data_buff[1], 100 - self.__Data_buff[2]]
         return LearnData
-
-
-if __name__ == '__main__':
-    ai = AILENS()
-    ai.switch_function(Learn)
-    while 0:
-        ai.get_image()
-        print(ai.get_ball_color())
-        print(ai.get_ball_data())
-    while 0:
-        ai.get_image()
-        print(ai.get_face)
-        print(ai.get_face_data())
-    while 0:
-        ai.get_image()
-        print(ai.get_card_content())
-        print(ai.get_card_data())
-    while 0:
-        ai.get_image()
-        print(ai.get_color_type())
-        print(ai.get_color_data())
-    while 0:
-        ai.get_image()
-        print(ai.get_track_data())
-    while 1:
-        ai.get_image()
-        if button_a.is_pressed():
-            ai.learn_object(1)
-        print(ai.get_learn_data())

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Team Name</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="data.html">Data</a></li>
+                <li>
+                    <a href="#">About</a>
+                    <ul>
+                        <li><a href="mars.html">Mars</a></li>
+                        <li><a href="about.html">About us</a></li>
+                    </ul>
+                </li>
+                <li><a href= "#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div>
+                <h2>All the data you need about Mars</h2>
+                <p>Our team has collected all the data you need about Mars. We have information about the planet's atmosphere, temperature, and much more.</p>
+                <a href = "data.html">See Data </a></li>
+                <img src="mars.jpg" alt="Mars">
+            </div>
+        </section>
+        <section>
+            <h2>Our Mission</h2>
+            <ul>
+                <li>
+                    <img src="collect_data.jpg">
+                    <h3>Collect Data</h3>
+                    <p>Our mission is to collect accurate and comprehensive data on Mars. We aim to provide detailed information 
+                        about the planet's atmosphere, surface conditions, and potential for future exploration. Our team uses 
+                        state-of-the-art technology and methodologies to ensure the highest quality of data collection and analysis.</p>
+                </li>
+                <li>
+                    <img src="materials.jpg" >
+                    <h3>Find valuable raw materials</h3>
+                    <p>One of our key objectives is to identify valuable raw materials on Mars that could be used for future space missions. 
+                        By analyzing the planet's surface composition and mineral resources using an AI camera, we hope to uncover new 
+                        opportunities for sustainable exploration and colonization.</p>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <div id = "contact">
+                <h2>Contact</h2>
+                <p>If you have any questions or would like to learn more about our team and our mission, please contact us using the form below.</p>
+                <form action="submit.php" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Our Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

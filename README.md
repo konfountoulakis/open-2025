@@ -71,6 +71,7 @@ https://drive.google.com/drive/folders/1eRdLx-MKs2KAyzeNh4g5FEQNfG7-39IQ?usp=dri
 - add info in the mars page with images
 - find images for the website
 - style all the pages
+- make the website in figma to help him without the content
 
 # IF
 If we are done early and everything works we can work on some ai predictions
