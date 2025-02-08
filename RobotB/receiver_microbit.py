@@ -1,3 +1,7 @@
+# Imports go at the top
+from microbit import *
+
+
 from microbit import *
 import radio 
 radio.config(group = 2)
@@ -7,7 +11,8 @@ sensors = ['T', 'U', 'D', 'L', 'C']
 
 uart.init(115200)
 
-def decrypt(messagge): pass
+def decrypt(message): 
+    return message[1:]
 
 def warn(sensor, value): pass
 
@@ -17,5 +22,4 @@ while True:
         display.scroll(message)
         uart.write(message)
         sensor, value = message[0], decrypt(message)
-        warn(sensor, value)
-
+        
