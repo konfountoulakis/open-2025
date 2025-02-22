@@ -25,6 +25,3 @@ def collect_send(sensor, pin):
     mes= encrypt(sensor,average) 
     radio.send(mes)
 
-    
-    change(value):
-    x = ((value))
