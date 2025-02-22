@@ -5,13 +5,11 @@
     </head>
 
     <body>
-        <!-- maybe we need to add some stuff to make the website look cool -->
         <div id="comboDiv" style="width: 1000px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 
-        <!-- needs to change to include all the data being sent by the microbit -->
         <script>
             function makeplot() {
-            Plotly.d3.csv("RobotB/data.csv", function(data){ processData(data) } );
+            Plotly.d3.csv("data.csv", function(data){ processData(data) } );
 
             };
 
@@ -26,12 +24,12 @@
                 yTemp.push( row['temperature'] );
                 yLight.push( row['light'] );
                 yUV.push(row['CO2'] );
-                yCO2.push(row['light');
-                yDust.push(row['UV'];
+                yCO2.push(row['light']);
+                yDust.push(row['UV']);
                 
                          
             }
-            console.log( 'X',x, 'YTEMP',yTemp, 'YLIGHT',yLight,'YUV',yUV,'YDUST',yDust,'YCO2,yCO2 );
+            console.log( 'X',x, 'YTEMP',yTemp, 'YLIGHT',yLight,'YUV',yUV,'YDUST',yDust,'YCO2', yCO2 );
             makePlotly( x, yTemp, yLight, yUV, yDust, yCO2);
             }
 
@@ -93,7 +91,7 @@
 
         </script>
         
-        <button type="button" onclick="window.location.href='RobotB/data.csv'" class="primaryCTA">Download CSV file</button>    
+        <button type="button" onclick="window.location.href='data.csv'" class="primaryCTA">Download CSV file</button>    
 
     </body>
 
