@@ -1,6 +1,6 @@
-from movements import *
+from RobotA.rover.movements import *
 from microbit import *
-from ai_lib import *
+from RobotA.rover.ai_lib import *
 
 rock = False
 

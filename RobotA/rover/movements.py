@@ -1,5 +1,5 @@
 from microbit import *
-from nezha import *
+from RobotA.rover.nezha import *
 
 # if i put sleep one what distance will i i do, know take the distance and give the time i need to reach it
 def calc_distnce(distance, speed):
