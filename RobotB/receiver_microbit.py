@@ -1,8 +1,5 @@
 # Imports go at the top
 from microbit import *
-
-
-from microbit import *
 import radio 
 radio.config(group = 2)
 radio.on()
