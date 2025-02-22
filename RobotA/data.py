@@ -9,7 +9,7 @@ def avg(values):
 
 def change(value):
     x = ((value*100)/1023)
-    return x 
+    return round(x) 
     
 def encrypt(sensor, value):
     mes = sensor + str(value)
