@@ -1,11 +1,20 @@
 from microbit import *
-from RobotA.rover.nezha import *
+import random
+from nezha import *
 
-# if i put sleep one what distance will i i do, know take the distance and give the time i need to reach it
+def choose_movement(nz, speed):
+    moves = ["straight", "right", "left"]
+    move = random.choice(moves)
+    if move == "straight":
+        straight_distance(nz, speed, random.randint(1, 10))
+    elif move == "right":
+        right_deg(nz, speed, random.randint(1, 180))
+    elif move == "left":
+        left_deg(nz, speed, random.randint(1, 180))
+
 def calc_distnce(distance, speed):
     return distance*80/100
 
-# όλες οι τιμές πρέπει να αλλαχθούν
 def straight(nz, speed): 
     nz.set_motors(1, speed)
     nz.set_motors(2, speed)
@@ -15,7 +24,6 @@ def straight_distance(nz, speed, distance):
     sleep(calc_distnce(distance, speed))
     straight(nz, 0)
 
-# we will find the math we need to go from degrees to time
 def calc_deg(deg, speed):
     return deg*10/90
 
@@ -32,7 +40,6 @@ def left_deg(nz, speed, deg):
     sleep(calc_deg(deg))
     nz.set_motors(1, 0)
     nz.set_motors(2, 0)
-
     
 def init_servo(nz, servo, deg): 
     nz.set_servo(servo, 90)
