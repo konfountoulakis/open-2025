@@ -15,7 +15,6 @@ ser = serial.Serial(
         timeout=1
 )
 
-# need to chane that based on the data we get from the microbit
 while True:
     data=ser.readline()
     print(data)

@@ -1,1 +1,9 @@
 The code for the serial communication was taken from https://github.com/blogmywiki/microbit-pi-data
+
+twrninal: 
+cd απο τον φακελο 
+python3 rasberry.py 
+
+local host:
+cd απο τον φακελο 
+python -m http.server 8000

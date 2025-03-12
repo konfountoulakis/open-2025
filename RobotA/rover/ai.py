@@ -1,6 +1,6 @@
 from movements import *
 from microbit import *
-from RobotA.rover.ai_lib import *
+from ai_lib import *
 
 rock = False
 
@@ -12,8 +12,8 @@ def find_rock(ai):
 def rock_pos(ai, wk): 
     ai.get_image()
     x, y = ai.get_ball_data()[0], ai.get_ball_data()[1]
+    return (x,y)
 
-# needs to be tested maybe we can have a curve as the correct position
 def check_pos(ai):
     ai.get_image()
     x, y = ai.get_ball_data()[0], ai.get_ball_data()[1]
