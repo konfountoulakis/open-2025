@@ -9,87 +9,49 @@
 
         <script>
             function makeplot() {
-            Plotly.d3.csv("data.csv", function(data){ processData(data) } );
-
-            };           
-
-            function processData(allRows) {
-
-            console.log(allRows);
-            var x = [], yTemp = [], yLight = [], yUV = [], yDust = [], yCO2 = [] 
+                fetchData(); // Fetch data initially
+                setInterval(fetchData, 2000); // Update every 2 seconds
+            }
         
-            for (var i=0; i<allRows.length; i++) {
-                row = allRows[i];
-                x.push( row['time'] );
-                yTemp.push( row['TEMPERATURE'] );
-                yLight.push( row['LIGHT'] );
-                yUV.push(row['UV'] );
-                yCO2.push(row['CO2']);
-                yDust.push(row['DUST']);
-                
-                         
+            function fetchData() {
+                Plotly.d3.csv("data.csv?" + new Date().getTime(), function(data) { 
+                    processData(data);
+                });
             }
-            console.log( 'X',x, 'YTEMP',yTemp, 'YLIGHT',yLight,'YUV',yUV,'YDUST',yDust,'YCO2', yCO2 );
-            makePlotly( x, yTemp, yLight, yUV, yDust, yCO2);
+        
+            function processData(allRows) {
+                console.log(allRows);
+                var x = [], yTemp = [], yLight = [], yUV = [], yDust = [], yCO2 = [];
+        
+                for (var i = 0; i < allRows.length; i++) {
+                    row = allRows[i];
+                    x.push(row['time']);
+                    yTemp.push(row['TEMPERATURE']);
+                    yLight.push(row['LIGHT']);
+                    yUV.push(row['UV']);
+                    yCO2.push(row['CO2']);
+                    yDust.push(row['DUST']);
+                }
+        
+                console.log('X', x, 'YTEMP', yTemp, 'YLIGHT', yLight, 'YUV', yUV, 'YDUST', yDust, 'YCO2', yCO2);
+                updatePlot(x, yTemp, yLight, yUV, yDust, yCO2);
             }
-
-
-            function makePlotly( x, yTemp, yLight, yUV, yDust, yCO2 ){
-            //  var plotDiv = document.getElementById("plot");
-
-            var trace1 = {
-                x: x,
-                y: yTemp,
-                type: 'scatter',
-                line: {shape: 'spline'},
-                name: 'temp'
-            };
-
-            var trace2 = {
-                x: x,
-                y: yLight,
-                type: 'scatter',
-                line: {shape: 'spline'},
-                name: 'light'
-            };
-                var trace3 = {
-                x: x,
-                y: yUV,
-                type: 'scatter',
-                line: {shape: 'spline'},
-                name: 'UV'
-                    
-            };
-                 var trace4 = {
-                x: x,
-                y: yDust,
-                type: 'scatter',
-                line: {shape: 'spline'},
-                name: 'Dust'
-                    
-            };
-                var trace5 = {
-                x: x,
-                y: yCO2,
-                type: 'scatter',
-                line: {shape: 'spline'},
-                name: 'CO2'
-                    
-            };
-
-
-
-
-            var traces = [trace1, trace2, trace3, trace4, trace5];
-
-            Plotly.newPlot('comboDiv', traces,
-                {title: 'micro:bit DATA'});
-
-            };
-
+        
+            function updatePlot(x, yTemp, yLight, yUV, yDust, yCO2) {
+                var traces = [
+                    { x: x, y: yTemp, type: 'scatter', line: {shape: 'spline'}, name: 'Temperature' },
+                    { x: x, y: yLight, type: 'scatter', line: {shape: 'spline'}, name: 'Light' },
+                    { x: x, y: yUV, type: 'scatter', line: {shape: 'spline'}, name: 'UV' },
+                    { x: x, y: yDust, type: 'scatter', line: {shape: 'spline'}, name: 'Dust' },
+                    { x: x, y: yCO2, type: 'scatter', line: {shape: 'spline'}, name: 'CO2' }
+                ];
+        
+                Plotly.react('comboDiv', traces, { title: 'Real-Time micro:bit DATA' });
+            }
+        
             makeplot();
-
         </script>
+        
         
         <button type="button" onclick="window.location.href='data.csv'" class="primaryCTA">Download CSV file</button>    
 
