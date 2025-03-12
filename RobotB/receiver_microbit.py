@@ -21,4 +21,3 @@ while True:
         new_message=str(pos+1)+decrypt(message)
         uart.write(new_message)
         sensor, value = message[0], decrypt(message)
-        
