@@ -11,21 +11,21 @@
             function makeplot() {
             Plotly.d3.csv("data.csv", function(data){ processData(data) } );
 
-            };
+            };           
 
             function processData(allRows) {
 
             console.log(allRows);
             var x = [], yTemp = [], yLight = [], yUV = [], yDust = [], yCO2 = [] 
-
+        
             for (var i=0; i<allRows.length; i++) {
                 row = allRows[i];
                 x.push( row['time'] );
-                yTemp.push( row['temperature'] );
-                yLight.push( row['light'] );
-                yUV.push(row['CO2'] );
-                yCO2.push(row['light']);
-                yDust.push(row['UV']);
+                yTemp.push( row['TEMPERATURE'] );
+                yLight.push( row['LIGHT'] );
+                yUV.push(row['UV'] );
+                yCO2.push(row['CO2']);
+                yDust.push(row['DUST']);
                 
                          
             }

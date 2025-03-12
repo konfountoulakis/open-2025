@@ -15,13 +15,15 @@ ser = serial.Serial(
         timeout=1
 )
 
+newData = [0,0,0,0,0,0]
+# need to chane that based on the data we get from the microbit
 while True:
     data=ser.readline()
     print(data)
     if data:
         dt = datetime.now()
         datestamp = str(dt)[:16]
-        newData = [datestamp,0,0,0,0,0]
+        newData[0] = datestamp
         data = data.decode()
         index = int(data[0])
         newData[index]=data[1:] #data0 einai h thesh kai to data[1:] enai ta stoixeia
