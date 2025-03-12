@@ -39,18 +39,23 @@
         
             function updatePlot(x, yTemp, yLight, yUV, yDust, yCO2) {
                 var traces = [
-                    { x: x, y: yTemp, type: 'scatter', line: {shape: 'spline'}, name: 'Temperature' },
-                    { x: x, y: yLight, type: 'scatter', line: {shape: 'spline'}, name: 'Light' },
-                    { x: x, y: yUV, type: 'scatter', line: {shape: 'spline'}, name: 'UV' },
-                    { x: x, y: yDust, type: 'scatter', line: {shape: 'spline'}, name: 'Dust' },
-                    { x: x, y: yCO2, type: 'scatter', line: {shape: 'spline'}, name: 'CO2' }
+                    { x: x, y: yTemp, type: 'scatter', line: { shape: 'spline' }, name: 'Temperature' },
+                    { x: x, y: yLight, type: 'scatter', line: { shape: 'spline' }, name: 'Light' },
+                    { x: x, y: yUV, type: 'scatter', line: { shape: 'spline' }, name: 'UV' },
+                    { x: x, y: yDust, type: 'scatter', line: { shape: 'spline' }, name: 'Dust' },
+                    { x: x, y: yCO2, type: 'scatter', line: { shape: 'spline' }, name: 'CO2' }
                 ];
         
-                Plotly.react('comboDiv', traces, { title: 'Real-Time micro:bit DATA' });
+                // Get current zoom/pan state
+                var graphDiv = document.getElementById('comboDiv');
+                var layout = graphDiv.layout || { title: 'Real-Time micro:bit DATA' };
+        
+                // Preserve zoom, if available
+                Plotly.react('comboDiv', traces, layout);
             }
         
             makeplot();
-        </script>
+        </script>        
         
         
         <button type="button" onclick="window.location.href='data.csv'" class="primaryCTA">Download CSV file</button>    
