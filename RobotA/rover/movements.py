@@ -1,9 +1,8 @@
 from microbit import *
 import random
 from nezha import *
-from distance import * 
+from ai import *
 
-dis = DISTANCE(J1)
         
 def stop(nz):
     nz.set_motors(1, 0)
@@ -48,10 +47,11 @@ def open(nz):
 def close(nz):
     nz.set_servo(4, 180)
 
-def choose_movement(nz, speed):
+def choose_movement(nz, ai, speed):
     moves = ["straight", "right", "left"]
     move = random.choice(moves)
-    if dis.get_distance():
+    if find_black_line(ai):
+        straight_distance(nz, -25, 50)
         move = random.choice(move[1:])
     if move == "straight":
         straight_distance(nz, speed, random.randint(1, 10))
@@ -60,4 +60,3 @@ def choose_movement(nz, speed):
     elif move == "left":
         left_deg(nz, speed, random.randint(1, 180))
 
-def return_base(nz): pass
