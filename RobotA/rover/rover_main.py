@@ -18,7 +18,9 @@ while True:
         message = radio.receive()
         if find_rock(ai):
             open(nz)
-            straight_distance(nz, 20, 10)
+            straight(nz, 20)
+            sleep(500)
+            stop(nz)
             close(nz)
         choose_movement(nz, 50)
         if message:
@@ -26,5 +28,4 @@ while True:
                 right(nz, 50)
                 sleep(500)
                 stop(nz)
-    return_base(nz)
     
