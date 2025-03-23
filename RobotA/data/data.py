@@ -16,10 +16,10 @@ def encrypt(sensor, value):
     return mes
     
     
-def collect_send(sensor, pin):
+def collect_send(sensor, value):
     values= []
     for i in range(10):
-        values.append(pin.read_analog())
+        values.append(value)
         sleep(100)
     average = change(avg(values))
     mes= encrypt(sensor,average) 
